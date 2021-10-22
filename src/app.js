@@ -33,6 +33,25 @@ app.get("/about", (req, res) => {
   });
 });
 
+app.get("/weather", (req, res) => {
+  if (!req.query.address) {
+    return res.send({
+      error: "You must provide an address",
+    });
+  }
+  GEOCODE(req.query.address, (error, { lat, long, location } = {}) => {
+    if (error) return res.send({ error });
+    FORECAST(lat, long, (error, forecastData) => {
+      if (error) return res.send({ error });
+      res.send({
+        forecast: forecastData,
+        location,
+        address: req.query.address
+      });
+    });
+  });
+});
+
 app.get("*", (req, res) => {
   res.render("error", {
     title: "404",
