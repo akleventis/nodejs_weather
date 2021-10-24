@@ -1,5 +1,7 @@
 ## Node.js weather application
 ----
+- Link to site:  https://alexcod.es/weather
+- Hosted through AWS EC2
 
 Yeah I know ...making a weather app is more basic than a teenage girl ordering an iced chai tea latte from Starbucks... but hey, we all gotta start somewhere
 </br>
